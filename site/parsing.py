@@ -16,7 +16,7 @@ import os,time, requests, sys
 
 MAIN_url = "https://visa.vfsglobal.com/tur/en/pol/login"
 email = "madaminovmuhammadjon31@gmail."+"com"
-password = "Fe*12fe@"
+password = ""
 
 sitekey = "6LfDUY8bAAAAAPU5MWGT_w0x5M-8RdzC29SClOfI"
 api_key = "529619540e8720bdaa0e671809350217"
