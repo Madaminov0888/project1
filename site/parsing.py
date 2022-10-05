@@ -16,7 +16,7 @@ import os,time, requests, sys
 
 MAIN_url = "https://visa.vfsglobal.com/tur/en/pol/login"
 email = "madaminovmuhammadjon31@gmail."+"com"
-password = ""
+password = "Fe*12ge@"
 
 sitekey = "6LfDUY8bAAAAAPU5MWGT_w0x5M-8RdzC29SClOfI"
 api_key = "529619540e8720bdaa0e671809350217"
@@ -37,7 +37,7 @@ def login(email, password):
     element.send_keys(email)
     element2.send_keys(password)
     print("bitdi1")
-    time.sleep(25)
+    time.sleep(45)
     return after_login()
 
 

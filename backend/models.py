@@ -1,3 +1,4 @@
+from tkinter import CASCADE
 from django.db import models
 
 
@@ -12,6 +13,7 @@ class BotUsers(models.Model):
 
     lang = models.CharField(verbose_name="Tili", max_length=33, choices=Language.choices,null = True, default="Uz")    
     user_id = models.BigIntegerField(unique=True)
+    situation = models.CharField(max_length=33, null= True, default="-")
     username = models.CharField(max_length=55, null = True, default="-")
 
 
@@ -33,6 +35,7 @@ class Users(models.Model):
         FOREIGNERS = "Foreigners - work permit"
         LONG_STAY = "Long-Stay others"
     
+    situation = models.IntegerField(null = True, default=0)
     name = models.CharField(verbose_name="Ismi", max_length=30, null = True, default="-")
     surname = models.CharField(verbose_name="Familiyasi", max_length=30, null = True, default="-")
     nationality = models.CharField(verbose_name="Irqi", max_length = 30, null = True, default = "-")
@@ -44,6 +47,15 @@ class Users(models.Model):
     visa_aplication_centre = models.CharField(verbose_name="Application", max_length=100, null = True, default="-")
 
 
+class Buttons(models.Model):
+    class Meta:
+        verbose_name = "Button"
+        verbose_name_plural = "Buttons"
+    
+    text_uz = models.CharField(max_length=50, null = True, default="-")
+    text_ru = models.CharField(max_length=50, null = True, default = "-")
+    call_back_data = models.CharField(max_length=50, null = True, default="-")
+
 
 class Matnlar(models.Model):
     class Meta:
@@ -54,4 +66,6 @@ class Matnlar(models.Model):
     title = models.CharField(max_length=50, null = True, default="-")
     text = models.TextField(verbose_name="Text", max_length=500, null = True, default="-")
     text_ru = models.TextField(verbose_name="Text Ru", max_length=500, null = True, default="-")
+    row_num =models.IntegerField(null = True, default=3)
+    buttons = models.ManyToManyField(Buttons)
 
